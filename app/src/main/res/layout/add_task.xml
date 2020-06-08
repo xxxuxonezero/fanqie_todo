@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:maxWidth="250dp"
+    android:minWidth="250dp"
+    android:theme="@style/AppTheme2"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_height="wrap_content">
+    <!--    <EditText-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/time"-->
+<!--        android:inputType="numberSigned"-->
+<!--        android:hint="请输入专注时长"/>-->
+    <EditText
+        android:id="@+id/task"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入待办事项"
+        android:inputType="text" />
+
+    <SeekBar
+        android:thumb="@drawable/circle"
+        android:id="@+id/seekBar"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxHeight="2dip"
+        android:progressDrawable="@drawable/seekbar_bg"
+        android:max="180"
+        android:progress="25" />
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/show_time"
+    android:layout_gravity="right"
+    android:text="25分钟"/>
+
+</LinearLayout>

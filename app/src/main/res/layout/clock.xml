@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+        android:background="@drawable/clock_bg"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true">
+    <com.android.sql.view.ClockTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/minute"
+        android:textSize="60dp"
+        android:text="00"/>
+        <com.android.sql.view.ClockTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text=":"/>
+    <com.android.sql.view.ClockTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/second"
+        android:textSize="60dp"
+        android:text="00"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:id="@+id/stop"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/stop"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:id="@+id/music"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/music"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:id="@+id/end_time"
+            android:layout_height="wrap_content"
+            android:background="@drawable/end"/>
+
+    </LinearLayout>
+</RelativeLayout>

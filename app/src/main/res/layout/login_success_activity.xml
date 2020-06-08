@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/login"
+    android:orientation="vertical"
+    android:theme="@style/AppTheme2"
+    android:layout_height="match_parent">
+    <com.qmuiteam.qmui.widget.QMUITopBarLayout
+        android:layout_height="?attr/qmui_topbar_height"
+        android:layout_width="match_parent"
+        android:id="@+id/topbar"
+        android:background="@color/colorPink"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/container_self"/>
+    <com.qmuiteam.qmui.widget.QMUIAnimationListView
+        android:layout_width="match_parent"
+        android:id="@+id/list_view"
+        android:layout_height="wrap_content">
+    </com.qmuiteam.qmui.widget.QMUIAnimationListView>
+
+    <com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout
+        android:layout_width="match_parent"
+        android:theme="@style/AppTheme"
+        android:minHeight="30dp"
+        android:layout_height="match_parent">
+
+<!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="bottom|right"-->
+<!--            android:layout_marginBottom="30dp"-->
+<!--            android:background="@color/colorPink"-->
+<!--            android:src="@drawable/add"-->
+<!--            android:id="@+id/add"-->
+<!--            app:backgroundTint="#FFB6C1" />-->
+
+<!--    <com.google.android.material.bottomappbar.BottomAppBar-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_gravity="bottom"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        tools:ignore="BottomAppBar" />-->
+
+        <com.google.android.material.tabs.TabLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:layout_gravity="bottom"
+            android:visibility="visible"
+            app:tabSelectedTextColor="@color/colorPink"
+            android:id="@+id/tab_bottom"
+            app:tabTextColor="@color/LightSlateGray"
+            app:tabIndicatorHeight="0dp"/>
+</com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout>
+</LinearLayout>
