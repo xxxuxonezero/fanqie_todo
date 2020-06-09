@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.sql.dao.MyDataBaseHelper;
 import com.android.sql.dao.UserDao;
+import com.qmuiteam.qmui.widget.QMUITopBarLayout;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
     private MyDataBaseHelper db;
@@ -18,10 +19,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private TextView username_text;
     private Button register;
     private UserDao userDao;
+    private QMUITopBarLayout bar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_activity);
+        bar = findViewById(R.id.register_bar);
+        bar.setTitle("注册");
         db = new MyDataBaseHelper(this, "study.db", null, 2);
         SQLiteDatabase sd = db.getWritableDatabase();
         userDao=new UserDao(sd);

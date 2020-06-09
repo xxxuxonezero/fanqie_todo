@@ -49,9 +49,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#ffffff"
+            android:minHeight="30dp"
             android:layout_gravity="bottom"
             android:visibility="visible"
-            app:tabSelectedTextColor="@color/colorPink"
             android:id="@+id/tab_bottom"
             app:tabTextColor="@color/LightSlateGray"
             app:tabIndicatorHeight="0dp"/>

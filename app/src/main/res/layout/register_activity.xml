@@ -8,6 +8,11 @@
     android:theme="@style/AppTheme2"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+    <com.qmuiteam.qmui.widget.QMUITopBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/qmui_topbar_height"
+        android:id="@+id/register_bar"
+        android:background="@color/colorPink"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"

@@ -185,7 +185,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         dialog.dismiss();
                     }
                 })
-                .addAction(R.drawable.clock, "设置时长", new QMUIDialogAction.ActionListener() {
+                .addAction(R.drawable.clock, " ", new QMUIDialogAction.ActionListener() {
                     @Override
                     public void onClick(QMUIDialog dialog, int index) {
                         seekBar = dialog.findViewById(R.id.seekBar);
@@ -274,6 +274,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case 0:
                 listView.setVisibility(View.VISIBLE);
                 addTask = bar.addRightTextButton("+", R.id.add_task);
+                addTask.setOnClickListener(this);
                 fragment = mFragmensts[0];
                 break;
             case 1:
@@ -286,9 +287,4 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             getSupportFragmentManager().beginTransaction().replace(R.id.container_self,fragment).commit();
         }
     }
-
-
-
-
-
 }

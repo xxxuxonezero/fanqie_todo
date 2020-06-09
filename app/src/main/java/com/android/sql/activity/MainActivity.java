@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.android.sql.dao.MyDataBaseHelper;
 import com.android.sql.dao.UserDao;
+import com.qmuiteam.qmui.widget.QMUITopBarLayout;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private MyDataBaseHelper db;
@@ -20,10 +21,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button login;
     private Button register;
     private UserDao userDao;
+    private QMUITopBarLayout bar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        bar=findViewById(R.id.login_bar);
+        bar.setTitle("登录");
         db = new MyDataBaseHelper(this, "study.db", null, 2);
         SQLiteDatabase sd = db.getWritableDatabase();
         userDao=new UserDao(sd);

@@ -12,6 +12,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -30,6 +31,7 @@ import static com.android.sql.activity.R.drawable.start;
 public class ClockActivity extends AppCompatActivity implements View.OnClickListener {
     private ClockTextView minute;
     private ClockTextView second;
+    private ClockTextView task_ing;
     private ImageView stop;
     private ImageView end;
     private ImageView music;
@@ -38,6 +40,7 @@ public class ClockActivity extends AppCompatActivity implements View.OnClickList
     private TaskDao taskDao;
     private String task_name;
     private int user_id;
+    private Intent intent2;
 
     private static final int UPDATE_CLOCK=0x111;
     private static final int STOP_CLOCK=0x222;
@@ -112,12 +115,16 @@ public class ClockActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.clock);
         Intent intent=getIntent();
+        //设置底部导航栏不会遮挡布局
+        getWindow()
+                .addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         MyDataBaseHelper db=new MyDataBaseHelper(ClockActivity.this,"study.db",null,2);
         SQLiteDatabase sd = db.getWritableDatabase();
         taskDao=new TaskDao(sd);
         task_name = intent.getStringExtra("task_name");
         task_time = intent.getIntExtra("task_time",0);
         user_id = intent.getIntExtra("user_id", -1);
+        intent2=new Intent(ClockActivity.this, MusicService.class);
         //获取控件，并添加监听器
         stop=findViewById(R.id.stop);
         stop.setOnClickListener(this);
@@ -127,8 +134,18 @@ public class ClockActivity extends AppCompatActivity implements View.OnClickList
         end.setOnClickListener(this);
         music = findViewById(R.id.music);
         music.setOnClickListener(this);
+        task_ing = findViewById(R.id.task_ing);
+        task_ing.setText(task_name);
         update();
     }
+
+    //解决了退出该活动后，音乐仍旧播放的问题
+    @Override
+    protected void onDestroy() {
+        stopService(intent2);
+        super.onDestroy();
+    }
+
     protected void update() {
         handler.post(update_thread);
     }
@@ -148,14 +165,14 @@ public class ClockActivity extends AppCompatActivity implements View.OnClickList
                 }
                 break;
             case R.id.music:
-                Intent intent=new Intent(ClockActivity.this, MusicService.class);
+//                Intent intent=new Intent(ClockActivity.this, MusicService.class);
                 Log.i("music","his");
                 if(!MusicService.isplay){
                     Log.i("music","start");
-                    startService(intent);
+                    startService(intent2);
                 }else{
                     Log.i("music","stop");
-                    stopService(intent);
+                    stopService(intent2);
                 }
                 break;
             case R.id.end_time:
